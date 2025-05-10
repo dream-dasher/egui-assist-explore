@@ -43,7 +43,11 @@ fn render_real_controls(ui: &mut Ui, max_x_real: &mut usize) {
 
         ui.horizontal(|ui| {
             ui.label("Max x value:");
-            ui.add(egui::Slider::new(max_x_real, 1..=100).text("x"));
+            ui.add(
+                egui::Slider::new(max_x_real, 1..=100)
+                    .text("x")
+                    .logarithmic(true),
+            );
         });
 
         // Add formula with rich text
@@ -60,7 +64,11 @@ fn render_complex_controls(ui: &mut Ui, max_x_complex: &mut usize) {
 
         ui.horizontal(|ui| {
             ui.label("Max x value:");
-            ui.add(egui::Slider::new(max_x_complex, 1..=100).text("x"));
+            ui.add(
+                egui::Slider::new(max_x_complex, 1..=100)
+                    .text("x")
+                    .logarithmic(true),
+            );
         });
 
         ui.label("Both components are bounded between -1 and 1");
